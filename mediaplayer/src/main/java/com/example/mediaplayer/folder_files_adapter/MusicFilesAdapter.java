@@ -76,7 +76,7 @@ public class MusicFilesAdapter extends BaseAdapter {
         musicSize.setText(android.text.format.Formatter.formatFileSize(context,
                 Long.parseLong(size)));
        Glide.with(context).load(new File(fileslist.get(position).getPath())).into(thumbnail);
-        double milliseconds = Double.parseDouble(fileslist.get(position).getDuration());
+        double milliseconds = Double.parseDouble("1000");
         musicDuration.setText(timeConversion((long) milliseconds));//converting time duration into hrs or minutes or seconds
 
 

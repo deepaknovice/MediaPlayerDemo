@@ -75,7 +75,7 @@ public class MusicPlayerActivity extends AppCompatActivity {
         previous = findViewById(R.id.previous);
         music_icon = findViewById(R.id.music_icon);
         musiclist = (ArrayList<MediaFiles>) getIntent().getSerializableExtra("Files");//getting list of songs from folders
-        Toast.makeText(this,musiclist.get(MyMediaPlayer.currentIndex).getDuration(),Toast.LENGTH_LONG).show();
+        Toast.makeText(this,"2000",Toast.LENGTH_LONG).show();
         serviceIntent = new Intent(this, cls);
         Bundle mediaData = new Bundle();
         mediaData.putSerializable("MusicList", musiclist);
@@ -229,9 +229,9 @@ public class MusicPlayerActivity extends AppCompatActivity {
 
 
        title.setText(musiclist.get(MyMediaPlayer.currentIndex).getDisplayname());
-       total_time.setText(timeConversion((Long.parseLong(musiclist.get(MyMediaPlayer.currentIndex).getDuration()))));
+       total_time.setText(timeConversion((Long.parseLong("2000"))));
 
-        seekbar.setMax((Integer.parseInt(String.valueOf((musiclist.get(MyMediaPlayer.currentIndex).getDuration())))) / 1000);
+        seekbar.setMax((Integer.parseInt(String.valueOf(("2000")))) / 1000);
 
         pause.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -246,7 +246,7 @@ public class MusicPlayerActivity extends AppCompatActivity {
 
                     pause.setImageResource(R.drawable.baseline_pause_circle);
                     title.setText(musiclist.get(MyMediaPlayer.currentIndex).getDisplayname());
-                    total_time.setText(timeConversion((Long.parseLong(musiclist.get(MyMediaPlayer.currentIndex).getDuration()))));
+                    total_time.setText(timeConversion((Long.parseLong("2000"))));
 
                    // seekbar.setMax((Integer.parseInt(String.valueOf((musiclist.get(MyMediaPlayer.currentIndex).getDuration())))) / 1000);
 
@@ -266,8 +266,8 @@ public class MusicPlayerActivity extends AppCompatActivity {
                     // Send skip to previous command to MyMediaBrowserService
                     MyMediaPlayer.currentIndex = MyMediaPlayer.currentIndex - 1;
                     title.setText(musiclist.get(MyMediaPlayer.currentIndex).getDisplayname());
-                    total_time.setText(timeConversion((Long.parseLong(musiclist.get(MyMediaPlayer.currentIndex).getDuration()))));
-                    seekbar.setMax((Integer.parseInt(String.valueOf((musiclist.get(MyMediaPlayer.currentIndex).getDuration())))) / 1000);
+                    total_time.setText(timeConversion((Long.parseLong("2000"))));
+                    seekbar.setMax((Integer.parseInt(String.valueOf(("2000")))) / 1000);
 
                     MediaControllerCompat.getMediaController(MusicPlayerActivity.this)
                             .getTransportControls().skipToPrevious();
@@ -275,8 +275,8 @@ public class MusicPlayerActivity extends AppCompatActivity {
                 } else {
                     MyMediaPlayer.currentIndex = musiclist.size() - 1;
                     title.setText(musiclist.get(MyMediaPlayer.currentIndex).getDisplayname());
-                    total_time.setText(timeConversion((Long.parseLong(musiclist.get(MyMediaPlayer.currentIndex).getDuration()))));
-                    seekbar.setMax((Integer.parseInt(String.valueOf((musiclist.get(MyMediaPlayer.currentIndex).getDuration())))) / 1000);
+                    total_time.setText(timeConversion((Long.parseLong("2000"))));
+                    seekbar.setMax((Integer.parseInt(String.valueOf(("2000")))) / 1000);
 
                     MediaControllerCompat.getMediaController(MusicPlayerActivity.this)
                             .getTransportControls().skipToPrevious();
@@ -290,8 +290,8 @@ public class MusicPlayerActivity extends AppCompatActivity {
                     // Send skip to previous command to MyMediaBrowserService
                     MyMediaPlayer.currentIndex = MyMediaPlayer.currentIndex + 1;
                     title.setText(musiclist.get(MyMediaPlayer.currentIndex).getDisplayname());
-                    total_time.setText(timeConversion((Long.parseLong(musiclist.get(MyMediaPlayer.currentIndex).getDuration()))));
-                    seekbar.setMax((Integer.parseInt(String.valueOf((musiclist.get(MyMediaPlayer.currentIndex).getDuration())))) / 1000);
+                    total_time.setText(timeConversion((Long.parseLong("2000"))));
+                    seekbar.setMax((Integer.parseInt(String.valueOf(("2000")))) / 1000);
 
                     MediaControllerCompat.getMediaController(MusicPlayerActivity.this)
                             .getTransportControls().skipToNext();
@@ -299,8 +299,8 @@ public class MusicPlayerActivity extends AppCompatActivity {
                 } else {
                     MyMediaPlayer.currentIndex = 0;
                     title.setText(musiclist.get(MyMediaPlayer.currentIndex).getDisplayname());
-                    total_time.setText(timeConversion((Long.parseLong(musiclist.get(MyMediaPlayer.currentIndex).getDuration()))));
-                    seekbar.setMax((Integer.parseInt(String.valueOf((musiclist.get(MyMediaPlayer.currentIndex).getDuration())))) / 1000);
+                    total_time.setText(timeConversion((Long.parseLong("2000"))));
+                    seekbar.setMax((Integer.parseInt(String.valueOf(("2000")))) / 1000);
 
                     MediaControllerCompat.getMediaController(MusicPlayerActivity.this)
                             .getTransportControls().skipToPrevious();
