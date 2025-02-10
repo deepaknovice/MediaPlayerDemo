@@ -1,6 +1,7 @@
 package com.example.mediaplayer.folder_files_from_storage;
 
 import android.database.Cursor;
+import android.media.MediaMetadataRetriever;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -49,8 +50,14 @@ public class VideoFiles extends AppCompatActivity {
                 String title= cursor.getString(cursor.getColumnIndexOrThrow(MediaStore.Video.Media.TITLE));
                 String displayName= cursor.getString(cursor.getColumnIndexOrThrow(MediaStore.Video.Media.DISPLAY_NAME));
                 String size= cursor.getString(cursor.getColumnIndexOrThrow(MediaStore.Video.Media.SIZE));
-                String duration= cursor.getString(cursor.getColumnIndexOrThrow(MediaStore.Video.Media.DURATION));
                 String path= cursor.getString(cursor.getColumnIndexOrThrow(MediaStore.Video.Media.DATA));
+                String duration= cursor.getString(cursor.getColumnIndexOrThrow(MediaStore.Video.Media.DURATION));
+                if (duration == null) {
+                    MediaMetadataRetriever r = new MediaMetadataRetriever();
+                    r.setDataSource(path);
+                    duration = r.extractMetadata( MediaMetadataRetriever.METADATA_KEY_DURATION);
+                }
+
                 String dateAdded= cursor.getString(cursor.getColumnIndexOrThrow(MediaStore.Video.Media.DATE_ADDED));
                 MediaFiles mediaFiles=new MediaFiles(id,title,displayName,size,duration,path,dateAdded);
 

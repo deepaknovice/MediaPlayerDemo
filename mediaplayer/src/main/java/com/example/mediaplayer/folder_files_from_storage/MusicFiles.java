@@ -1,6 +1,7 @@
 package com.example.mediaplayer.folder_files_from_storage;
 
 import android.database.Cursor;
+import android.media.MediaMetadataRetriever;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -51,6 +52,11 @@ public class MusicFiles extends AppCompatActivity {
                 String size= cursor.getString(cursor.getColumnIndexOrThrow(MediaStore.Audio.Media.SIZE));
                 String duration= cursor.getString(cursor.getColumnIndexOrThrow(MediaStore.Audio.Media.DURATION));
                 String path= cursor.getString(cursor.getColumnIndexOrThrow(MediaStore.Audio.Media.DATA));
+                if (duration == null) {
+                    MediaMetadataRetriever r = new MediaMetadataRetriever();
+                    r.setDataSource(path);
+                    duration = r.extractMetadata( MediaMetadataRetriever.METADATA_KEY_DURATION);
+                }
                 String dateAdded= cursor.getString(cursor.getColumnIndexOrThrow(MediaStore.Audio.Media.DATE_ADDED));
                 MediaFiles mediaFiles=new MediaFiles(id,title,displayName,size,duration,path,dateAdded);
 
